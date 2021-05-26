@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ProductMod" representedClassName="ProductMod" syncable="YES" codeGenerationType="class">
+    <entity name="ProductModel" representedClassName="ProductModel" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="provider" optional="YES" attributeType="String"/>
+        <relationship name="relProvider" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Providers" inverseName="products" inverseEntity="Providers"/>
+    </entity>
+    <entity name="Providers" representedClassName="Providers" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductModel" inverseName="relProvider" inverseEntity="ProductModel"/>
     </entity>
     <elements>
-        <element name="ProductMod" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="ProductModel" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="Providers" positionX="-63" positionY="18" width="128" height="73"/>
     </elements>
 </model>
